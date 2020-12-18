@@ -1,0 +1,9 @@
+#!/bin/bash
+# mpiexecstdout for Fujitsu MPI environment
+# author: Balazs Gerofi <bgerofi@riken.jp>
+#      Copyright (C) 2020 RIKEN
+#
+LIBDIR="@CMAKE_INSTALL_PREFIX@/lib64/"
+
+export LIBSTDOUT_FILENAME=/tmp/stdout
+LD_PRELOAD=${LIBDIR}/libstdout.so mpiexec -stdout /tmp/stdout $@
